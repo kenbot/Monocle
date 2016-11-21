@@ -14,6 +14,8 @@ options:
        url: docs/optics/lens.html
      - title: Prism
        url: docs/optics/prism.html
+     - title: Traversal
+       url: docs/optics/traversal.html
 
   - title: Typeclasses
     url: docs/typeclasses.html
