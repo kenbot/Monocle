@@ -31,7 +31,7 @@ val head = Optional[List[Int], Int] {
 }
 ```
 
-Once we have an `Optional`, we can use the supplied `isMatching` function to know if it matches:
+Once we have an `Optional`, we can use the supplied `nonEmpty` function to know if it matches:
 
 ```scala
 scala> val xs = List(1, 2, 3)
@@ -40,10 +40,10 @@ xs: List[Int] = List(1, 2, 3)
 scala> val ys = List.empty[Int]
 ys: List[Int] = Nil
 
-scala> head.isMatching(xs)
+scala> head.nonEmpty(xs)
 res0: Boolean = true
 
-scala> head.isMatching(ys)
+scala> head.nonEmpty(ys)
 res1: Boolean = false
 ```
 
@@ -59,7 +59,7 @@ ys: List[Int] = Nil
 scala> head.getOrModify(xs)
 res0: scalaz.\/[List[Int],Int] = -\/(List())
 
-scala> head.isMatching(ys)
+scala> head.nonEmpty(ys)
 res1: scalaz.\/[List[Int],Int] = \/-(1)
 ```
 
