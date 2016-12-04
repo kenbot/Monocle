@@ -94,6 +94,9 @@ abstract class PTraversal[S, T, A, B] extends Serializable { self =>
   /** Compose methods between a [[PTraversal]] and another Optics */
   /****************************************************************/
 
+  final def compose[Opt[_,_,_,_],C,D](opt: Opt[A,B,C,D])(implicit cmp: OpticCompose[PTraversal, Opt]): cmp.Result[S,T,C,D] = 
+    cmp.compose(this, opt)
+
   /** compose a [[PTraversal]] with a [[Fold]] */
   @inline final def composeFold[C](other: Fold[A, C]): Fold[S, C] =
     asFold composeFold other

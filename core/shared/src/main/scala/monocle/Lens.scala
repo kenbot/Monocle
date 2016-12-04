@@ -86,6 +86,8 @@ abstract class PLens[S, T, A, B] extends Serializable { self =>
   /***********************************************************/
   /** Compose methods between a [[PLens]] and another Optics */
   /***********************************************************/
+  final def compose[Opt[_,_,_,_],C,D](opt: Opt[A,B,C,D])(implicit cmp: OpticCompose[PLens, Opt]): cmp.Result[S,T,C,D] = 
+    cmp.compose(this, opt)
 
   /** compose a [[PLens]] with a [[Fold]] */
   @inline final def composeFold[C](other: Fold[A, C]): Fold[S, C] =
